@@ -7,12 +7,16 @@ def func(x, a):
     return y
 
 def main():
-    x = float(input("x = "))
-    a = float(input("A = "))
-        
+    try:
+        x = float(input("x = "))
+        a = float(input("A = "))
+    except:
+        print("Invalid data")
+        return
+
     y = func(x, a)
 
-    print("y = {}".format(y))
+    print(f"y = {y}")
     
-
 main()
+

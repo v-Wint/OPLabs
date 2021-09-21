@@ -41,7 +41,7 @@ int main()
     
     if (prec > 51) { cout << "Sorry, but 51 is the maximum precision\n"; }
 
-    cout <<setprecision(prec) << "e = " << getEulerNum() ;
+    cout << setprecision(prec) << "e = " << getEulerNum() ;
 
     return 0;
 }
