@@ -17,17 +17,15 @@ unsigned long long int factorial(int num) {
 }
 
 /**
-* Compute e with given precision based on number of iterations
+* Compute euler's number
 */
 double getEulerNum() {
     double result = 1;
-    int i = 1;
 
-    // until the overflow
-    while (factorial(i) > 0) 
+    // 25 iterations is enough
+    for (int i = 1; i <= 25; i++) 
     {
         result += 1.0 / factorial(i);
-        i++;
     }
 
     return result;
