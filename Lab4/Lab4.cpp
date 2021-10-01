@@ -20,11 +20,15 @@ int main()
 		cout << "Sorry, but n cannot equal 0";
 		return 0;
 	}
+	if (a == b) {
+		cout << "Sorry, but a cannot equal b\n";
+		return 0;
+	}
 
 	h = getH(a, b, n);
 
 	for (int i = 1; i <= n; i++) {
-		printf("%i - %.3f\n", i, a + i * h);
+		printf("r%i - %.3f\n", i, a + i * h);
 	}
 
 	return 0;

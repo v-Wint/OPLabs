@@ -12,4 +12,5 @@ def main():
         if num == rev_num(num):
             print(num)
 
-main()
+if __name__ == "__main__":
+    main()

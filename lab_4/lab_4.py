@@ -1,4 +1,3 @@
-
 def get_h(a, b, n):
     return (b - a)/n
 
@@ -12,11 +11,15 @@ def main():
     if n == 0:
         print("Sorry, but n cannot equal 0")
         return
+    if a == b:
+        print("Sorry, but a cannot equal b")
+        return
 
     h = get_h(a, b, n)
 
     for i in range(1, n + 1):
         result = a + i*h
-        print(f"{i} — {round(result, 3)}")
+        print(f"r{i} — {round(result, 3)}")
 
-main()
+if __name__ == "__main__":
+    main()
