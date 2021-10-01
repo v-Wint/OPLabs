@@ -1,6 +1,4 @@
 ﻿#include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 /** 
@@ -17,29 +15,31 @@ unsigned long long int factorial(int num) {
 }
 
 /**
-* Compute euler's number
+* Compute euler's number with given precision E
 */
-double getEulerNum() {
+double getEulerNum(double E) {
     double result = 1;
+    int i = 1;
 
-    // 25 iterations is enough
-    for (int i = 1; i <= 25; i++) 
+    while (1.0 / factorial(i) >= E) 
     {
         result += 1.0 / factorial(i);
+        i++;
     }
-
     return result;
 }
 
 int main()
 {
-    // precision with which the result will be shown
-    int prec;
-    cout << "Precision (num of significant digits) = "; cin >> prec;
-    
-    if (prec > 51) { cout << "Sorry, but 51 is the maximum precision\n"; }
+    double E;
+    cout << "Precision E (0, 1] = "; cin >> E;
 
-    cout << setprecision(prec) << "e = " << getEulerNum() ;
+    if (E <= 0 || E > 1) {
+        cout << "Invalid precision\n";
+        return 0;
+    }
+
+    cout << "e = " << getEulerNum(E);
 
     return 0;
 }

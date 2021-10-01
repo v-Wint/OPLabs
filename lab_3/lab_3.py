@@ -1,4 +1,3 @@
-
 def factorial(num):
     """returns the factorial of a given number"""
     result = 1
@@ -7,25 +6,28 @@ def factorial(num):
         num -= 1
     return result
 
-def get_euler_number():
+def get_euler_number(E):
+    """calculate euler's number with given precision E"""
     result = 1.0
-
-    #25 iterations is enough 
-    for i in range(1, 26):
+    i = 1
+    while 1 / factorial(i) >= E:
         result += 1 / factorial(i)
+        i += 1
 
     return result
 
-
 def main():
+    try:
+        E = float(input("Precision E (0, 1] = "))
+    except:
+        print("Invalid precision")
+        return
 
-    prec = int(input("Precision (num of significant digits) = "))
+    if not 0 < E <= 1:
+        print("Invalid precision")
+        return
 
-    if prec > 51: print("Sorry, but 51 is the maximum precision")
-
-    #build resulting string to show e num with given precision
-    result_str = "e = {:." + str(prec-1) + "f}"
-    print(result_str.format(get_euler_number()).rstrip('0'))
+    print(f"e = {get_euler_number(E)}")
 
 if __name__ == "__main__":
     main()
