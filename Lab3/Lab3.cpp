@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <iomanip>
 using namespace std;
 
 /** 
@@ -8,8 +9,14 @@ unsigned long long int factorial(int num) {
     unsigned long long int result = 1;
     while (num)
     {
-        result *= num;
-        num--;
+        // to prevent ullong overflow
+        if (result < ULLONG_MAX / num) {
+            result *= num;
+            num--;
+        }
+        else {
+            return 0;
+        }
     }
     return result;
 }
@@ -21,10 +28,17 @@ double getEulerNum(double E) {
     double result = 1;
     int i = 1;
 
-    while (1.0 / factorial(i) >= E) 
+    while (1.0 / factorial(i) >= E)
     {
-        result += 1.0 / factorial(i);
-        i++;
+        if (factorial(i) == 0) {
+            cout << "ULLong overflow\n";
+            break;
+        }
+        else {
+            result += 1.0 / factorial(i);
+            i++;
+        }
+        
     }
     return result;
 }
@@ -39,7 +53,7 @@ int main()
         return 0;
     }
 
-    cout << "e = " << getEulerNum(E);
+    cout << setprecision(51) << "e = " << getEulerNum(E);
 
     return 0;
 }

@@ -27,7 +27,7 @@ def main():
         print("Invalid precision")
         return
 
-    print(f"e = {get_euler_number(E)}")
+    print("e = {:.50f}".format(get_euler_number(E)).rstrip('0').rstrip('.'))
 
 if __name__ == "__main__":
     main()
