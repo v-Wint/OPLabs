@@ -25,6 +25,7 @@ unsigned long long int factorial(int num) {
 */
 double term(double x, int n) {
     double res;
+
     if (factorial(2*n) == 0) {
         cout << "ULLong overflow\n";
         return 0;
@@ -65,8 +66,7 @@ int main()
 
     y = cosFunc(a, E) + pow(cosFunc(b, E), 2) + cosFunc(a + b, E);
 
-    printf("y = %5.6f\n", y);
+    printf("y = %5.9f\n", y);
     
-
     return 0;
 }

@@ -7,6 +7,7 @@ using namespace std;
 */
 unsigned long long int factorial(int num) {
     unsigned long long int result = 1;
+
     while (num)
     {
         // to prevent ullong overflow
