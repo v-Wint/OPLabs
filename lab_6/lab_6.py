@@ -17,10 +17,13 @@ def cos_func(x, E):
 
     result = 1
     i = 1
-
-    while abs(term(i)) >= E:
-        result += term(i)
-        i += 1
+    while True:
+        t = term(i)
+        if abs(t) >= E:
+            result += t
+            i += 1
+        else:
+            break
 
     return result
 

@@ -22,25 +22,30 @@ unsigned long long int factorial(int num) {
     return result;
 }
 
+/*
+* returns the term of the progression
+*/
+double term(int n) {
+    if (factorial(n) == 0) {
+        cout << "ULLong overflow\n";
+        return 0;
+    }
+    else {
+        return 1.0 / factorial(n);
+    }
+}
+
 /**
 * Compute euler's number with given precision E
 */
 double getEulerNum(double E) {
     double result = 1;
-    int i = 1;
+    double t;
 
-    while (1.0 / factorial(i) >= E)
-    {
-        if (factorial(i) == 0) {
-            cout << "ULLong overflow\n";
-            break;
-        }
-        else {
-            result += 1.0 / factorial(i);
-            i++;
-        }
-        
+    for (int i = 1; ((t = term(i)) >= E); i++) {
+        result += t;
     }
+
     return result;
 }
 

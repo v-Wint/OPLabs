@@ -41,12 +41,10 @@ double term(double x, int n) {
 */
 double cosFunc(double x, double E) {
     double result = 1.0;
-    int i = 1;
+    double t;
 
-    while (abs(term(x, i)) >= E )
-    {
-        result += term(x, i);
-        i++;
+    for (int i = 1; (abs(t = term(x, i)) >= E); i++) {
+        result += t;
     }
     
     return result;

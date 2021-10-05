@@ -8,11 +8,19 @@ def factorial(num):
 
 def get_euler_number(E):
     """calculate euler's number with given precision E"""
+
+    term = lambda n: 1 / factorial(n)
+
     result = 1.0
     i = 1
-    while 1 / factorial(i) >= E:
-        result += 1 / factorial(i)
-        i += 1
+
+    while True:
+        t =  term(i)
+        if t >= E:
+            result += t
+            i += 1
+        else:
+            break
 
     return result
 
