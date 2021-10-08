@@ -1,26 +1,14 @@
-def factorial(num):
-    """returns the factorial of a given number"""
-    result = 1
-    while num:
-        result *= num
-        num -= 1
-    return result
-
 def get_euler_number(E):
     """calculate euler's number with given precision E"""
+    result = 0.0
+    term = 1.0
+    i = 1.0
 
-    term = lambda n: 1 / factorial(n)
-
-    result = 1.0
-    i = 1
-
-    while True:
-        t =  term(i)
-        if t >= E:
-            result += t
-            i += 1
-        else:
-            break
+    while term >= E:
+        result += term
+        # every other term is the  previous term devided by numeral
+        term /= i
+        i += 1.0
 
     return result
 

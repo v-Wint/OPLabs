@@ -2,48 +2,18 @@
 #include <iomanip>
 using namespace std;
 
-/** 
-* Compute the factorial of a given number
-*/
-unsigned long long int factorial(int num) {
-    unsigned long long int result = 1;
-
-    while (num)
-    {
-        // to prevent ullong overflow
-        if (result < ULLONG_MAX / num) {
-            result *= num;
-            num--;
-        }
-        else {
-            return 0;
-        }
-    }
-    return result;
-}
-
-/*
-* returns the term of the progression
-*/
-double term(int n) {
-    if (factorial(n) == 0) {
-        cout << "ULLong overflow\n";
-        return 0;
-    }
-    else {
-        return 1.0 / factorial(n);
-    }
-}
-
 /**
 * Compute euler's number with given precision E
 */
 double getEulerNum(double E) {
-    double result = 1;
-    double t;
+    double result = 0.0, term = 1.0, i = 1.0;
 
-    for (int i = 1; ((t = term(i)) >= E); i++) {
-        result += t;
+    while (term >= E) {
+        result += term;
+
+        term /= i; // every other term is the  previous term devided by numeral
+
+        i++;
     }
 
     return result;
@@ -59,7 +29,7 @@ int main()
         return 0;
     }
 
-    cout << fixed <<  setprecision(51) << "e = " << getEulerNum(E);
+    cout <<  setprecision(51) << "e = " << getEulerNum(E);
 
     return 0;
 }
