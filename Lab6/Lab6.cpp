@@ -43,7 +43,7 @@ double cosFunc(double x, double E) {
     double result = 1.0;
     double t;
 
-    for (int i = 1; (abs(t = term(x, i)) >= E); i++) {
+    for (int i = 1; (fabs(t = term(x, i)) >= E); i++) {
         result += t;
     }
     

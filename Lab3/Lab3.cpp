@@ -59,7 +59,7 @@ int main()
         return 0;
     }
 
-    cout << setprecision(51) << "e = " << getEulerNum(E);
+    cout << fixed <<  setprecision(51) << "e = " << getEulerNum(E);
 
     return 0;
 }
