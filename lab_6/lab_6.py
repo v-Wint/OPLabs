@@ -3,18 +3,23 @@ def cos_func(x, E):
     with given precision E using Taylor series"""
 
     result = 0.0
+    term_ = 1.0
     term = 1.0
     i = 1.0
 
-    while abs(term) >= E:
+    while True:
         result += term
+        term_ = term
 
         # every other term equals the previous term multiplied by -x^2/(2n*(2n-1)
         term = - term * x**2 / (2*i*(2*i-1))
 
         i += 1.0
 
-    return result
+        if abs(term - term_) < E:
+            return result
+
+    
 
 def main():
     try:
@@ -29,7 +34,7 @@ def main():
 
     y = cos_func(a, E) + cos_func(a+b, E)
 
-    print(f"y = {round(y, 9)}")
+    print("y = {:.9f}".format(round(y, 9)))
 
 
 if __name__ == "__main__":

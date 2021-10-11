@@ -5,15 +5,17 @@ using namespace std;
 * Computes approximal cos of a given number with given precision E using Taylor series
 */
 double cosFunc(double x, double E) {
-    double result = 0.0, term = 1.0, i = 1.0;
+    double result = 0.0, term_ = 1.0, term = 1.0, i = 1.0;
     
-    while (fabs(term) >= E) {
+    do {
         result += term;
+        term_ = term;
 
         //every other term equals the previous term multiplied by -x^2/(2n*(2n-1)
         term = -term * pow(x, 2) / (2 * i * (2 * i - 1)); 
+
         i++;
-    }
+    } while (abs(term - term_) >= E);
 
     return result;
 }
