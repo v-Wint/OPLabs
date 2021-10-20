@@ -2,10 +2,6 @@
 
 using namespace std;
 
-double getH(double a, double b, int n) {
-	return (b - a) / n;
-}
-
 int main()
 {
 	double a, b, h;
@@ -25,7 +21,7 @@ int main()
 		return 0;
 	}
 
-	h = getH(a, b, n);
+	h = (b - a) / n;
 
 	for (int i = 1; i <= n; i++) {
 		printf("r%i - %.3f\n", i, a + i * h);
