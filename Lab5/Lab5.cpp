@@ -2,6 +2,20 @@
 
 using namespace std;
 
+int reversedNumber(int);
+
+int main() {
+	for (int num = 1000000; num <= 1000000000; num++)
+	{
+		if (num == reversedNumber(num))
+		{
+			cout << num << "\n";
+		}
+	}
+
+	return 0;
+}
+
 /*
 * returns reversed integer
 */
@@ -14,16 +28,4 @@ int reversedNumber(int num) {
 		num = num / 10;
 	}
 	return revNum;
-}
-
-int main() {
-	for (int num = 1000000; num <= 1000000000; num++)
-	{
-		if (num == reversedNumber(num))
-		{
-			cout << num << "\n";
-		}
-	}
-
-	return 0;
 }
