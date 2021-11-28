@@ -1,7 +1,5 @@
 ﻿#include <iostream>
 #include <stdio.h>
-#include <math.h>
-#include <stdarg.h>
 
 #define RANGE 100
 
@@ -17,7 +15,7 @@ void replaceElementWithFirst(double*, size_t, double); // replace the given elem
 
 int main() {
     // values input
-    size_t n; int z;
+    int n; int z;
     cout << "n = "; cin >> n;
     cout << "z = "; cin >> z;
     if (n < 1 ) {
