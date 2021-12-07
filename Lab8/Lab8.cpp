@@ -29,14 +29,14 @@ int main()
     }
 
     // initialization
-    double **B = initialize(n, m), **C = initialize(n, m);
+    double **C = initialize(n, m), **B = initialize(n, m);
     
     //processing the new arrays
-    double **Y = copyArray(B, n, m), **Z = copyArray(C, n, m);
+    double **Y = copyArray(C, n, m), **Z = copyArray(B, n, m);
     
-    cout << "BEFORE THE SWAP:\n";
-    cout << "Array B: \n"; display(B, n, m);
+    cout << "\nBEFORE THE SWAP:\n";
     cout << "Array C: \n"; display(C, n, m);
+    cout << "Array B: \n"; display(B, n, m);
     cout << "Array Y: \n"; display(Y, n, m);
     cout << "Array Z: \n"; display(Z, n, m);
 
@@ -51,9 +51,9 @@ int main()
     swapRows(Y, Z, theMaxElementRowY, theMaxElementRowZ);
     swapRows(Y, Z, theMinElementRowY, theMinElementRowZ);
 
-    cout << "AFTER THE SWAP:\n";
+    cout << "\nAFTER THE SWAP:\n";
+    cout << "Array C: \n"; display(C, n, m);
     cout << "Array B: \n"; display(B, n, m);
-    cout << "Array C: \n"; display(C, n, m); 
     cout << "Array Y: \n"; display(Y, n, m);
     cout << "Array Z: \n"; display(Z, n, m);
     
